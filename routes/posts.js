@@ -1,51 +1,10 @@
-const express = require('express')
+const express = require('express');
 const router = express.Router();
-
-
-const articles = [
-    {
-        id: 1,
-        titolo: "Ciambellone",
-        contenuto: "Buonissimo",
-        immagine: "/img/ciambellone.jpeg",
-        tags: ["dolce", "colazione", "semplice"],
-    },
-    {
-        id: 2,
-        titolo: "Cracker di Barbabietola",
-        contenuto: "Ma cosa sto guardando",
-        immagine: "/img/cracker_barbabietola.jpeg",
-        tags: ["snack", "salato", "veloce"],
-    },
-    {
-        id: 3,
-        titolo: "Pane Fritto Dolce",
-        contenuto: "Ci ho ripensato, da NON provare",
-        immagine: "/img/pane_fritto_dolce.jpeg",
-        tags: ["dolce", "merenda", "tradizione"],
-    },
-    {
-        id: 4,
-        titolo: "Pasta alla Barbabietola",
-        contenuto:"Sembra quel tipico piatto da ristorante a 5 stelle che lo provi e sa di legno",
-        immagine: "/img/pasta_barbabietola.jpeg",
-        tags: ["pasta", "vegetariano", "veloce"],
-    },
-    {
-        id: 5,
-        titolo: "Torta Paesana",
-        contenuto: "Immagini IA tipo:",
-        immagine: "/img/torta_paesana.jpeg",
-        tags: ["dolce", "rustico", "tradizione"],
-    },
-];
-
-
+const articles = require('../data/articles'); // Importa il modulo articles
 
 //Index
 router.get('/', (req, res) => {
-    let list = articles.map(article => article.titolo)
-    return res.send(`<h1>Lista Articoli</h1><p>${list}</p>`)
+    return res.json(articles);
 })
 
 //show
@@ -77,9 +36,9 @@ router.delete('/:id', (req, res) => {
 
 
 module.exports = router;
-    
 
 
 
-   
-   
+
+
+
