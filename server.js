@@ -4,9 +4,7 @@ const PORT = 3000
 const postRouter = require('./routers/posts')
 
 
-app.get('/', (req,res) =>{
-    return res.send('Welcome to my blog')
-})
+
 
 app.get("/", (req,res) => {
     res.json({ posts });
