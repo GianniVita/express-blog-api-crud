@@ -1,3 +1,5 @@
+const articles = require("../data/articles");
+
 //Index
 router.get('/', (req, res) => {
     return res.json(articles);
@@ -32,8 +34,17 @@ router.patch('/:id', (req, res) => {
 
 //destroy
 router.delete('/:id', (req, res) => {
-    res.send('Eliminazione degli articoli' + req.params.id);
-})
+   const id = parseInt(req.params.id);
+   const articleIndex = articles.findIndex(article => article.id === id);
+
+   if (articleIndex === -1) {
+    return res.status(404).json({error:'Articolo non trovato'});
+    
+   }
+   const deletedArticle = articles.splice(articleIndex, 1);
+   return res.json({messaggio:'Articolo eliminato', articolo: deletedArticle[0]});
+
+});
 
 
 module.exports = router;
