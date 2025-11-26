@@ -35,6 +35,8 @@ const destroy = (req, res) => {
     }
     const deletedArticle = articles.splice(articleIndex, 1);
     return res.json({ messaggio: 'Articolo eliminato', articolo: deletedArticle[0] });
+
 };
+
 
 module.exports = { index, show, store, update, modify, destroy };
