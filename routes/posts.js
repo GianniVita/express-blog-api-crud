@@ -9,9 +9,14 @@ router.get('/', (req, res) => {
 
 //show
 router.get('/:id', (req, res) => {
-    res.send('Dettagli del Blod' + req.params.id);
+    const id = Number(req.params.id)
+    const foundArticle = articles.find(article => article.id === id)
 
-})
+    if (!articles) {
+        return res.status(404).json({error:'Articolo non trovato'});
+        }
+        return res.json(foundArticle);
+});
 
 //store
 router.post('/', (req, res) => {
