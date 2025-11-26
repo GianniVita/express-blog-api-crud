@@ -1,7 +1,7 @@
 const articles = require("../data/articles");
 
 const index = (req, res) => {
-    return res.json(articles);
+    return res.status(200).json(articles);
 };
 
 const show = (req, res) => {
@@ -33,8 +33,9 @@ const destroy = (req, res) => {
     if (articleIndex === -1) {
         return res.status(404).json({ error: 'Articolo non trovato' });
     }
-    const deletedArticle = articles.splice(articleIndex, 1);
-    return res.json({ messaggio: 'Articolo eliminato', articolo: articles});
+    articles.splice(articleIndex, 1);
+    console.log('Lista aggiornata:', articles);
+    return res.status(204).send();
 
 };
 
