@@ -1,7 +1,13 @@
 const articles = require("../data/articles");
 
 const index = (req, res) => {
-    return res.status(200).json(articles);
+    const { tag } = req.query;
+
+    if (tag) {
+        const filteredArticles = articles.filter(article => article.tags.includes(tag));
+        return res.status(200).json(filteredArticles);
+    }
+
 };
 
 const show = (req, res) => {
