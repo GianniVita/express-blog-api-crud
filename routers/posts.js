@@ -1,4 +1,5 @@
 const express = require('express');
+// Create an istance of the router application (mini-app)
 const router = express.Router();
 const articlesController = require('../controllers/articlesController');
 
