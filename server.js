@@ -8,6 +8,10 @@ app.get('/', (req,res) =>{
     return res.send('Welcome to my blog')
 })
 
+app.get("/", (req,res) => {
+    res.json({ posts });
+});
+
 app.use('/posts', postRouter)
 
 

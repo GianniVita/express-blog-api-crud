@@ -6,12 +6,20 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
-    "dev":"node --watch server.js"
+    "dev": "node --watch server.js"
   },
-  "keywords":[],
+  "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "express": "^5.1.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GianniVita/express-blog-api-crud.git"
+  },
+  "bugs": {
+    "url": "https://github.com/GianniVita/express-blog-api-crud/issues"
+  },
+  "homepage": "https://github.com/GianniVita/express-blog-api-crud#readme"
 }
