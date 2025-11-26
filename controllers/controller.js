@@ -13,11 +13,16 @@ const index = (req, res) => {
 const show = (req, res) => {
     const id = Number(req.params.id);
     const foundArticle = articles.find(article => article.id === id);
+    //console.log(foundArticle);
+    
 
     if (!foundArticle) {
-        return res.status(404).json({ error: 'Articolo non trovato' });
+        return res.status(404).json({ 
+          error: true ,
+          message: 'Articolo non trovato'
+        });
     }
-    return res.json(foundArticle);
+    res.json(foundArticle);
 };
 
 const store = (req, res) => {
@@ -40,7 +45,7 @@ const destroy = (req, res) => {
         return res.status(404).json({ error: 'Articolo non trovato' });
     }
     articles.splice(articleIndex, 1);
-    console.log('Lista aggiornata:', articles);
+    //console.log('Lista aggiornata:', articles);
     return res.status(204).send();
 
 };
