@@ -41,12 +41,15 @@ const destroy = (req, res) => {
     const id = parseInt(req.params.id);
     const articleIndex = articles.findIndex(article => article.id === id);
 
-    if (articleIndex === -1) {
-        return res.status(404).json({ error: 'Articolo non trovato' });
+    if (!articleIndex) {
+        return res.status(404).json
+        ({ error: true,
+            message: 'Articolo non trovato'
+         });
     }
-    articles.splice(articleIndex, 1);
-    //console.log('Lista aggiornata:', articles);
-    return res.status(204).send();
+    articles.splice(articles.indexOf(articleIndex), 1);
+   
+    res.sendStatus(204)
 
 };
 
