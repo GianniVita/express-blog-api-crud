@@ -34,7 +34,7 @@ const destroy = (req, res) => {
         return res.status(404).json({ error: 'Articolo non trovato' });
     }
     const deletedArticle = articles.splice(articleIndex, 1);
-    return res.json({ messaggio: 'Articolo eliminato', articolo: deletedArticle[0] });
+    return res.json({ messaggio: 'Articolo eliminato', articolo: articles});
 
 };
 
