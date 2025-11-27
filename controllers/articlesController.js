@@ -27,7 +27,7 @@ const show = (req, res) => {
 
 const store = (req, res) => {
     const newId = articles[articles.length - 1].id +1;
-   console.log(newId);
+        console.log(newId);
    
    // Creiamo il nuovo articolo(oggetto)
     const newArticle = {
@@ -36,28 +36,34 @@ const store = (req, res) => {
         contenuto: req.body.contenuto,
         immagine: req.body.immagine,
         tags: req.body.tags
+        
     }
     // aggiungiamo ilnuovo articolo alla lista già esistente
     articles.push(newArticle);
-
+   
     //restituiamo lo status corretto e l'articolo appena creato 
     res.status(201);
     res.json(newArticle);
 };
 
 const update = (req, res) => {
-    const articleId = Number(req.params.id)
-    const articleData = req.body
-
-    const article = article.find(article => article.id === articleId)
-
-    if(!article)
+    const id = parseInt(req.params.id)
+    const article = articles.find(articles => articles.id === id)
+    
+    if(!articles)
         return res.status(404).json({
-            error:true,
-            message:'Articolo non trovato'
+            error: "Not Found",
+             message:'Articolo non trovato'
         });
+    articles.titolo = req.body.titolo;
+    articles.contenuto = req.body.contenuto;
+    articles.immagine = req.body.immagine;
+    articles.tags = req.body.tags;
 
-    res.send('Modifica integrale degli articoli ' + req.params.id);
+    console.log(article);
+    
+
+    res.json(articles);
 };
 
 const modify = (req, res) => {
