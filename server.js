@@ -13,7 +13,7 @@ app.use(express.json());
 
 // define your first route
 app.get("/", (req,res) => {
-    res.json({ posts });
+    res.json({ message: "Benvenuto nel mio API!" });
 });
 
 app.use('/posts', postRouter)
