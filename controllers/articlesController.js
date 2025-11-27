@@ -26,7 +26,7 @@ const show = (req, res) => {
 };
 
 const store = (req, res) => {
-    const newId = article[article.lenght - 1].id +1;
+    const newId = articles[articles.lenght - 1].id +1;
    // console.log(req.body);
    
    // Creiamo il nuovo articolo(oggetto)
@@ -38,7 +38,7 @@ const store = (req, res) => {
         tags: req.body.tags
     }
     // aggiungiamo ilnuovo articolo alla lista già esistente
-    article.push(newArticle);
+    articles.push(newArticle);
 
     //restituiamo lo status corretto e l'articolo appena creato 
     res.status(201);
