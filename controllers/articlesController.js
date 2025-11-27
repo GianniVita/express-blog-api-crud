@@ -26,10 +26,28 @@ const show = (req, res) => {
 };
 
 const store = (req, res) => {
+    
+    const newObj = {
+        id: Date.now(),
+        ...req.body
+    }
+    articles.push(newArticle)
+    
     res.send('Creazione nuovo articolo');
 };
 
 const update = (req, res) => {
+    const articleId = Number(req.params.id)
+    const articleData = req.body
+
+    const article = article.find(article => article.id === id)
+
+    if(!article)
+        return res.status(404).json({
+            error:true,
+            message:'Articolo non trovato'
+        });
+
     res.send('Modifica integrale degli articoli ' + req.params.id);
 };
 

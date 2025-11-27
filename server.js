@@ -4,6 +4,9 @@ const PORT = 3000
 const postRouter = require('./routers/posts')
 const posts = require('./data/articles')
 
+app.use(express.static(public))
+
+
 
 
 
