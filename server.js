@@ -7,6 +7,10 @@ const posts = require('./data/articles')
 // register the static assets
 app.use(express.static('public'))
 
+//register the body parser
+app.use(express.json());
+
+
 // define your first route
 app.get("/", (req,res) => {
     res.json({ posts });
@@ -15,8 +19,6 @@ app.get("/", (req,res) => {
 app.use('/posts', postRouter)
 
 
-//register the body parser
-app.use(express.json());
 
 
 // put the server on listening

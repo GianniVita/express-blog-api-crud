@@ -26,16 +26,16 @@ const show = (req, res) => {
 };
 
 const store = (req, res) => {
-    const newId = articles[articles.lenght - 1].id +1;
-   // console.log(req.body);
+    const newId = articles[articles.length - 1].id +1;
+   console.log(newId);
    
    // Creiamo il nuovo articolo(oggetto)
     const newArticle = {
         id: newId,
-        titolo: req.body.titolo,
-        contenuto: req.body.contenuto,
-        immagine: req.body.img,
-        tags: req.body.tags
+        titolo: req?.body?.titolo,
+        contenuto: req.body?.contenuto,
+        immagine: req.body?.immagine,
+        tags: req.body?.tags
     }
     // aggiungiamo ilnuovo articolo alla lista già esistente
     articles.push(newArticle);
