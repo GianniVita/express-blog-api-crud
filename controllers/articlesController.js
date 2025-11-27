@@ -8,6 +8,9 @@ const index = (req, res) => {
         return res.status(200).json(filteredArticles);
     }
 
+    // In caso tag non sia definito facciamo restituire tutti gli articoli
+    return res.status(200).json(articles);
+
 };
 
 
