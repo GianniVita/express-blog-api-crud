@@ -16,7 +16,7 @@ app.use('/posts', postRouter)
 
 
 //register the body parser
-app.use(express.json())
+app.use(express.json());
 
 
 // put the server on listening

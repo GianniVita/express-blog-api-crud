@@ -26,14 +26,23 @@ const show = (req, res) => {
 };
 
 const store = (req, res) => {
-    
-    const newObj = {
-        id: Date.now(),
-        ...req.body
+    const newId = article[article.lenght - 1].id +1;
+   // console.log(req.body);
+   
+   // Creiamo il nuovo articolo(oggetto)
+    const newArticle = {
+        id: newId,
+        titolo: req.body.titolo,
+        contenuto: req.body.contenuto,
+        immagine: req.body.img,
+        tags: req.body.tags
     }
-    articles.push(newArticle)
-    
-    res.send('Creazione nuovo articolo');
+    // aggiungiamo ilnuovo articolo alla lista già esistente
+    article.push(newArticle);
+
+    //restituiamo lo status corretto e l'articolo appena creato 
+    res.status(201);
+    res.json('Creazione nuovo articolo');
 };
 
 const update = (req, res) => {
