@@ -40,7 +40,7 @@ const update = (req, res) => {
     const articleId = Number(req.params.id)
     const articleData = req.body
 
-    const article = article.find(article => article.id === id)
+    const article = article.find(article => article.id === articleId)
 
     if(!article)
         return res.status(404).json({
