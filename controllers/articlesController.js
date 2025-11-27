@@ -32,17 +32,17 @@ const store = (req, res) => {
    // Creiamo il nuovo articolo(oggetto)
     const newArticle = {
         id: newId,
-        titolo: req?.body?.titolo,
-        contenuto: req.body?.contenuto,
-        immagine: req.body?.immagine,
-        tags: req.body?.tags
+        titolo: req.body.titolo,
+        contenuto: req.body.contenuto,
+        immagine: req.body.immagine,
+        tags: req.body.tags
     }
     // aggiungiamo ilnuovo articolo alla lista già esistente
     articles.push(newArticle);
 
     //restituiamo lo status corretto e l'articolo appena creato 
     res.status(201);
-    res.json('Creazione nuovo articolo');
+    res.json(newArticle);
 };
 
 const update = (req, res) => {
